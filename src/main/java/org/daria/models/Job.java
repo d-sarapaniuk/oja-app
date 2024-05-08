@@ -4,7 +4,7 @@ public class Job {
     private String title;
     private String description;
 
-    public Job(int jobID, String title, String description) throws IllegalArgumentException{
+    public Job(String title, String description) throws IllegalArgumentException{
         this.title = title;
         this.description = description;
     }

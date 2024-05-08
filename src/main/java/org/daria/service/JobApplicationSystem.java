@@ -17,8 +17,11 @@ public class JobApplicationSystem {
         this.jobApplications = new ArrayList<>();
     }
 
-    public void createJob(int jobID, String title, String description) {
-        Job job = new Job(jobID, title, description);
+    public void createJob(String title, String description) {
+        Job job = new Job(title, description);
+        jobs.add(job);
+    }
+    public void createJob(Job job) {
         jobs.add(job);
     }
 
@@ -31,13 +34,23 @@ public class JobApplicationSystem {
         return jobs.get(index);
     }
 
-    public void viewApplicationsForJob(Job job) {
-        System.out.println("Applications for job: " + job.getTitle());
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    public List<JobApplication> getJobApplications() {
+        return jobApplications;
+    }
+
+    public String viewApplicationsForJob(Job job) {
+        StringBuilder output = new StringBuilder();
+        output.append("Applications for job: ").append(job.getTitle()).append("\n");
         for (JobApplication application : jobApplications) {
             if (application.getJob().equals(job)) {
-                System.out.println("Applicant: " + application.getApplicant().getName());
-                System.out.println("\tResume: " + application.getResume());
+                output.append("Applicant: ").append(application.getApplicant().getName()).append("\n");
+                output.append("\tResume: ").append(application.getResume()).append("\n");
             }
         }
+        return output.toString();
     }
 }
