@@ -11,20 +11,19 @@ public class Main {
         jobSystem.createJob("Data Scientist", "Analyze and interpret complex data");
 
         // Create some applicants
-        Applicant applicant1 = new Applicant("Hanna Kuz", "starosta@gmail.com");
-        Applicant applicant2 = new Applicant("Oksana Demchuk", "oksanka2009@ukr.net");
+        Applicant applicant1 = new Applicant("Hanna Kuz", "starosta@gmail.com", "Software engineer with 5 years of experience");
+        Applicant applicant2 = new Applicant("Oksana Demchuk", "oksanka2009@ukr.net", "Recent graduate with strong programming skills. Experienced data analyst with machine learning expertise");
 
         // Apply for jobs
-        jobSystem.applyForJob(jobSystem.getJob(0), applicant1, "Software engineer with 5 years of experience");
-        jobSystem.applyForJob(jobSystem.getJob(0), applicant2, "Recent graduate with strong programming skills");
+        jobSystem.applyForJob(jobSystem.getJob(0), applicant1);
+        jobSystem.applyForJob(jobSystem.getJob(0), applicant2);
 
-        jobSystem.applyForJob(jobSystem.getJob(1), applicant2, "Experienced data analyst with machine learning expertise");
+        jobSystem.applyForJob(jobSystem.getJob(1), applicant2);
 
         // View applications for a job
-//        jobSystem.viewApplicationsForJob(jobSystem.getJob(0));
+
         System.out.println(jobSystem.viewApplicationsForJob(jobSystem.getJob(0)));
         System.out.println();
-//        jobSystem.viewApplicationsForJob(jobSystem.getJob(1));
         System.out.println(jobSystem.viewApplicationsForJob(jobSystem.getJob(1)));
     }
 }

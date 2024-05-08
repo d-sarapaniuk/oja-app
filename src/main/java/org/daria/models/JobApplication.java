@@ -3,12 +3,12 @@ package org.daria.models;
 public class JobApplication {
     private Job job;
     private Applicant applicant;
-    private String resume;
 
-    public JobApplication(Job job, Applicant applicant, String resume) {
+    public JobApplication(Job job, Applicant applicant) {
+        if (job == null || applicant == null)
+            throw new NullPointerException("Job cannot be null");
         this.job = job;
         this.applicant = applicant;
-        this.resume = resume;
     }
 
     public Job getJob() {
@@ -17,9 +17,5 @@ public class JobApplication {
 
     public Applicant getApplicant() {
         return applicant;
-    }
-
-    public String getResume() {
-        return resume;
     }
 }

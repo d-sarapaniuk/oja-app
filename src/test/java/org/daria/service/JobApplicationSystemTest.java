@@ -22,8 +22,8 @@ public class JobApplicationSystemTest {
         job2 = new Job("Data Analyst", "Analyzing and interpreting data");
         jobSystem.createJob(job1);
         jobSystem.createJob(job2);
-        applicant1 = new Applicant("Applicant1", "app1@example.com");
-        applicant2 = new Applicant("Applicant2", "app2@example.com");
+        applicant1 = new Applicant("Applicant1", "app1@example.com", "Resume for Applicant1");
+        applicant2 = new Applicant("Applicant2", "app2@example.com", "Resume for Applicant2");
     }
 
     @Test
@@ -35,8 +35,8 @@ public class JobApplicationSystemTest {
 
     @Test
     public void testApplyForJob() {
-        jobSystem.applyForJob(job1, applicant1, "Resume for Applicant1");
-        jobSystem.applyForJob(job2, applicant2, "Resume for Applicant2");
+        jobSystem.applyForJob(job1, applicant1);
+        jobSystem.applyForJob(job2, applicant2);
         assertEquals(2, jobSystem.getJobApplications().size());
         assertEquals("Applicant1", jobSystem.getJobApplications().get(0).getApplicant().getName());
         assertEquals("Applicant2", jobSystem.getJobApplications().get(1).getApplicant().getName());
@@ -44,9 +44,9 @@ public class JobApplicationSystemTest {
 
     @Test
     public void testViewApplicationsForJob() {
-        jobSystem.applyForJob(job1, applicant1, "Resume for Applicant1");
-        jobSystem.applyForJob(job1, applicant2, "Resume for Applicant2");
-        jobSystem.applyForJob(job2, applicant1, "Resume for Applicant1");
+        jobSystem.applyForJob(job1, applicant1);
+        jobSystem.applyForJob(job1, applicant2);
+        jobSystem.applyForJob(job2, applicant1);
         String expectedOutput = "Applications for job: Software Engineer\n" +
                 "Applicant: Applicant1\n" +
                 "\tResume: Resume for Applicant1\n" +

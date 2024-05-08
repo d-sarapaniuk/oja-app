@@ -25,8 +25,8 @@ public class JobApplicationSystem {
         jobs.add(job);
     }
 
-    public void applyForJob(Job job, Applicant applicant, String resume) {
-        JobApplication application = new JobApplication(job, applicant, resume);
+    public void applyForJob(Job job, Applicant applicant) {
+        JobApplication application = new JobApplication(job, applicant);
         jobApplications.add(application);
     }
 
@@ -48,7 +48,7 @@ public class JobApplicationSystem {
         for (JobApplication application : jobApplications) {
             if (application.getJob().equals(job)) {
                 output.append("Applicant: ").append(application.getApplicant().getName()).append("\n");
-                output.append("\tResume: ").append(application.getResume()).append("\n");
+                output.append("\tResume: ").append(application.getApplicant().getResume()).append("\n");
             }
         }
         return output.toString();
