@@ -52,6 +52,7 @@ public class JobApplicationSystemTest {
                 "\tResume: Resume for Applicant1\n" +
                 "Applicant: Applicant2\n" +
                 "\tResume: Resume for Applicant2\n";
+        
         assertEquals(expectedOutput, jobSystem.viewApplicationsForJob(job1));
     }
 }
